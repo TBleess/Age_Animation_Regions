@@ -164,7 +164,7 @@ rect:hover {
 
 	
 		<script type="text/javascript" src="data/all.js"></script>
-	
+		<script type="text/javascript" src="data/all_supplemental.js"></script>	
 
 		<!--<script type="text/javascript" src="data/_000.js"></script>	-->
 		
@@ -295,6 +295,16 @@ rect:hover {
 			<option value="2038">2038</option>	
 			<option value="2039">2039</option>
 			<option value="2040">2040</option>
+			<option value="2041">2041</option>
+			<option value="2042">2042</option>
+			<option value="2043">2043</option>
+			<option value="2044">2044</option>
+			<option value="2045">2045</option>
+			<option value="2046">2046</option>
+			<option value="2047">2047</option>
+			<option value="2048">2048</option>	
+			<option value="2049">2049</option>
+			<option value="2050">2050</option>      
 		</select>
 		
 						<button id="abutton" >Animate</button>	
@@ -572,7 +582,7 @@ svg.call(tip);
 				
 		function animate(){
 		
-		if(year==2040){year=1989;}
+		if(year==2050){year=1989;}
 	
 		if(l==0){l = window.setInterval(updatefunc, speed);}else{clearInterval(l);l=0;}
 
@@ -580,7 +590,7 @@ svg.call(tip);
 				
 			year++;
 					
-			if(year>2040){clearInterval(l);year=2040;l=0;}else{
+			if(year>2050){clearInterval(l);year=2050;l=0;}else{
 				document.getElementById('year').innerHTML=year;
 				update();
 				}
@@ -605,7 +615,7 @@ svg.call(tip);
 		dataset = eval("_" + county + "_" + String(year));			
 		
 		
-		datasetmax=eval("_" + county + "_2040");	
+		datasetmax=eval("_" + county + "_2050");	
 		
 		yScale.domain([0, maxlookup(county)]);
 
@@ -634,7 +644,7 @@ svg.call(tip);
 		
 		function maxlookup(county){
 			var years=[];
-			for(i=0; i<51; i++){ years[i]= d3.max(eval("_" + county + "_" + String(1990 + i)), function(d) { return d.v; }) }
+			for(i=0; i<61; i++){ years[i]= d3.max(eval("_" + county + "_" + String(1990 + i)), function(d) { return d.v; }) }
 			return Math.max.apply(Math, years);
 		}			
 		
