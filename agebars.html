@@ -5,11 +5,12 @@
 		<title>Age by Year Visualization</title>
 		<script type="text/javascript" src="d3.min.js"></script>
 		<script type="text/javascript" src="d3tip.js"></script>		
-		
+
+    
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-
+		<script type="text/javascript" src="js/jquery.history.js"></script>	
 		
 		<style>
 rect:hover {
@@ -176,7 +177,7 @@ rect:hover {
 
 				
 		<select id="aselect">
-			<option value="000" selected>Colorado</option>		
+			<option value="000">Colorado</option>		
 			<option value="001">Adams</option>
 			<option value="003">Alamosa</option>
 			<option value="005">Arapahoe</option>
@@ -244,7 +245,7 @@ rect:hover {
 		</select>
 
 		<select id="ayear">
-			<option value="1990" selected>1990</option>
+			<option value="1990">1990</option>
 			<option value="1991">1991</option>
 			<option value="1992">1992</option>
 			<option value="1993">1993</option>
@@ -314,8 +315,42 @@ rect:hover {
 		
 		<script type="text/javascript">
 
+			$(function() {
+			
+        //for jquery history plugin
+History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
 
+  
+    });
+        
+      function parseQueryString(){
+  var newstr, objURL;
+  newstr = String(window.location.search);
+  objURL = {};
+  newstr.replace(
+    new RegExp("([^?=&]+)(=([^&]*))?", "g"), function ($0, $1, $2, $3) {
+      objURL[$1] = $3;
+    });
+  console.log(objURL);
+  return objURL;
+}
+      
+var params = parseQueryString();
+      
+      //three possible parameters: county, year, and stop
+      //stop indicates that there is animation, which would run from 'year' to 'stop'
 	
+     //aselect
+        
+        var presetcounty = params.county || "000";
+        $('#aselect').val(presetcounty);
+      
+      //ayear
+      var presetyear = params.year || "1990";
+         $('#ayear').val(presetyear);     
+        
+        
 	
         $('#aselect').selectmenu({
             change: function() {
@@ -380,12 +415,13 @@ function commafy(nStr) {
 			var xpadding=15;  //top and right padding
 			var padding=60;  //left padding
 			var spadding=30; //bottom padding
-			
-			
-			var year = 1990;
 
-			
-			var county="000";
+
+
+			var year = params.year || 1990;
+			var county= params.county || "000";
+      
+
 			document.getElementById('title').innerHTML=changetitle(county);
 			document.getElementById('year').innerHTML=year;
 			
@@ -513,8 +549,8 @@ svg.call(tip);
       .on('mouseout', tip.hide);
 
 
-
-
+//automatically kicks into animation mode if stop parameter is set
+if(parseInt(params.stop,10)>0){setTimeout(function(){animate();}, 1000); }
 
 				function update(){
 
@@ -581,16 +617,46 @@ svg.call(tip);
 
 				
 		function animate(){
-		
-		if(year==2050){year=1989;}
-	
-		if(l==0){l = window.setInterval(updatefunc, speed);}else{clearInterval(l);l=0;}
+		var stopyear = parseInt(params.stop,10) || 2050;
+      
+
+		if(l==0){l = window.setInterval(updatefunc, speed);}else{
+      
+      //if animate button pressed, but animation active.  stop animation.  set dropdown year to correct year.  update url string.
+      
+      clearInterval(l);l=0;
+      
+         $('#ayear').val(year);  
+        $("#ayear").selectmenu("refresh");
+        
+          //create a URL string with all variables not at a default value
+    urlstr='?'+'county='+$('#aselect').val() +'&year='+year;
+    newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + urlstr;
+
+		History.pushState({path:newurl},'',newurl);
+    
+    }
 
 			function updatefunc(){
 				
 			year++;
 					
-			if(year>2050){clearInterval(l);year=2050;l=0;}else{
+			if(year>stopyear){
+        clearInterval(l);
+        year=stopyear;
+        l=0;
+        var presetyear = params.stop || "2050";
+        presetyear=presetyear.toString();
+         $('#ayear').val(presetyear);  
+        $("#ayear").selectmenu("refresh");
+        
+          //create a URL string with all variables not at a default value
+    urlstr='?'+'county='+$('#aselect').val() +'&year='+$('#ayear').val();
+    newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + urlstr;
+
+		History.pushState({path:newurl},'',newurl);
+        
+      }else{
 				document.getElementById('year').innerHTML=year;
 				update();
 				}
@@ -604,8 +670,13 @@ svg.call(tip);
 
 		function jsFunction(pvalue){
 
-		
-		
+
+  
+  //create a URL string with all variables not at a default value
+    urlstr='?'+'county='+pvalue +'&year='+year;
+    newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + urlstr;
+
+		History.pushState({path:newurl},'',newurl);
 		
 		clearInterval(l);
 		l=0;
@@ -722,6 +793,12 @@ svg.call(tip);
 		
 		function uyear(newyear){
 		
+      //create a URL string with all variables not at a default value
+    urlstr='?'+'county='+$('#aselect').val() +'&year='+newyear;
+    newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + urlstr;
+
+		History.pushState({path:newurl},'',newurl);  
+      
 		clearInterval(l);
 		l=0;
 		year=newyear;
@@ -733,6 +810,8 @@ svg.call(tip);
 		update();
 		}
 		
+      
+      });
 		</script>
 
 	</body>
