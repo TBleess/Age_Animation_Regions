@@ -6,6 +6,7 @@
 
 // phantomjs runner.js 000 | ffmpeg -loglevel error -y -c:v png -f image2pipe -r 10 -t 140  -i - -c:v msmpeg4v2 -b 2000k -vf "setpts=0.2*PTS, scale=trunc(iw/2)*2:trunc(ih/2)*2" mp4/000.avi
 
+//credits: http://mindthecode.com/recording-a-website-with-phantomjs-and-ffmpeg/
 
 var system = require('system');
 var args = system.args;
