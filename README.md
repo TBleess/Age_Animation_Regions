@@ -1,7 +1,7 @@
 # Age-Animation-Bars
 D3 Visualization of Colorado Single Year of Age over time.
 
-<img src="image/ageanimate.png" /><br /><br />
+<img src="img/agebars.jpg" /><br /><br />
 
 A generational look at age for Colorado Counties.  Data from the Colorado State Demography Office: 10-20-2015.
 
