@@ -94,7 +94,7 @@ $(function() {
     $("#dlvideo").button()
         .click(function(event) {
             event.preventDefault();
-            location.href = "https://s3-us-west-2.amazonaws.com/ageanimation/" + $('#aselect').val() + ".avi";
+            location.href = "https://storage.googleapis.com/age-animation-bars/" + $('#aselect').val() + ".avi";
             //animate();		
         });
 
