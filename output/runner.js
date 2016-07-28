@@ -17,7 +17,7 @@ page.viewportSize = {
     height: 480
 };
 
-page.open('http://php-lamp-6548.nitrousapp.com:3000/Age-Animation-Bars/agebars.html?county=' + args[1] + '&year=1990&stop=2050&pace=2000&hide=yes', function() {
+page.open('https://demography.dola.colorado.gov/Age-Animation-Bars/index.html?county=' + args[1] + '&year=1990&stop=2050&pace=2000&hide=yes', function() {
     var i = setInterval(function() {
         page.render('/dev/stdout', {
             format: "png"
