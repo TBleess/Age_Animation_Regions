@@ -114,7 +114,7 @@ $(function() {
             spinner.spin(target);
             console.log(location.href);
             var qstring = location.search;
-            if(qstring=""){qstring="?a=1";} //if no querystring
+            if(qstring===""){qstring="?a=1";} //if no querystring
             location.href = 'https://gis.dola.colorado.gov/phantom/screenshot?website=' + encodeURIComponent("https://demography.dola.colorado.gov/Age-Animation-Bars/" + qstring + "&hide=true") + '&file=' + 'ageAnimate' + makeid() + '&timer=' + timedelay + '&width=1050&height=675';
             window.setTimeout(function(){
               spinner.stop();
