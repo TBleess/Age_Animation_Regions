@@ -43,12 +43,11 @@ $(function() {
             function($0, $1, $2, $3) {
                 objURL[$1] = $3;
             });
-        console.log(objURL);
         return objURL;
     }
 
     var params = parseQueryString();
-
+  
     //five possible parameters: county, year, stop, pace, hide
     //stop indicates that there is animation, which would run from 'year' to 'stop'
     //pace, how fast the animation runs (higher is slower.  default =400)
@@ -100,44 +99,29 @@ $(function() {
 
     $("#screencap").button()
         .click(function(event) {
+            var timedelay = 4000; //4 seconds
             event.preventDefault();
-
             function makeid() {
-
                 var text = "",
                     possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
                     i;
-
                 for (i = 0; i < 5; i = i + 1) {
                     text = text + possible.charAt(Math.floor(Math.random() * possible.length));
                 }
-
-
                 return text;
             }
 
-
-            var params = parseQueryString();
-
-            var newobj = {};
-
-            newobj.county = params.county || "000";
-            newobj.year = params.year || "1990";
-            newobj.outname = makeid(); //output file name  ... makeid() is function creates random 5 letter filename	  
-
-            //start wait
             spinner.spin(target);
+            console.log(location.href);
+            var qstring = location.search;
+            if(qstring=""){qstring="?a=1";} //if no querystring
+            location.href = 'https://gis.dola.colorado.gov/phantom/screenshot?website=' + encodeURIComponent("https://demography.dola.colorado.gov/Age-Animation-Bars/" + qstring + "&hide=true") + '&file=' + 'ageAnimate' + makeid() + '&timer=' + timedelay + '&width=1050&height=675';
+            window.setTimeout(function(){
+              spinner.stop();
+            }, timedelay);
+      
 
 
-            $.get("do.php", newobj, function() {
-
-                window.open("http://" + window.location.hostname + "/Age-Animation-Bars/output/png/" + newobj.outname + ".png");
-                spinner.stop();
-                //end wait
-            });
-
-
-            //animate();		
         });
 
 
