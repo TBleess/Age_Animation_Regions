@@ -285,10 +285,16 @@ $(function() {
             if (cyear > 1964 && cyear < 1980) {
                 creturn = "rgba(155, 187, 89, 0.9)";
             }
-            if (cyear > 1979 && cyear < 2000) {
+            if (cyear > 1979 && cyear < 1997) {
                 creturn = "rgba(192, 80, 77, 0.9)";
             }
-            if (cyear > 1999) {
+            if (cyear > 1996 && cyear < 2015) {
+                creturn = "rgba(255, 255, 153, 0.9)";
+            }
+            if (cyear > 2014 && cyear < 2030) {
+                creturn = "rgba(191, 91, 23, 0.9)";
+            }
+            if (cyear > 2029) {
                 creturn = "rgba(79, 129, 189, 0.9)";
             }
             return creturn;
@@ -338,10 +344,16 @@ $(function() {
                 if (cyear > 1964 && cyear < 1980) {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
-                if (cyear > 1979 && cyear < 2000) {
-                    creturn = "rgba(192, 80, 77, 0.9)";
+               if (cyear > 1979 && cyear < 1997) {
+                creturn = "rgba(192, 80, 77, 0.9)";
                 }
-                if (cyear > 1999) {
+                if (cyear > 1996 && cyear < 2015) {
+                    creturn = "rgba(255, 255, 153, 0.9)";
+                }
+                if (cyear > 2014 && cyear < 2030) {
+                    creturn = "rgba(191, 91, 23, 0.9)";
+                }
+                if (cyear > 2029) {
                     creturn = "rgba(79, 129, 189, 0.9)";
                 }
                 return creturn;
@@ -377,10 +389,16 @@ $(function() {
                 if (cyear > 1964 && cyear < 1980) {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
-                if (cyear > 1979 && cyear < 2000) {
+                if (cyear > 1979 && cyear < 1997) {
                     creturn = "rgba(192, 80, 77, 0.9)";
                 }
-                if (cyear > 1999) {
+                if (cyear > 1996 && cyear < 2015) {
+                    creturn = "rgba(255, 255, 153, 0.9)";
+                }
+                if (cyear > 2014 && cyear < 2030) {
+                    creturn = "rgba(191, 91, 23, 0.9)";
+                }
+                if (cyear > 2029) {
                     creturn = "rgba(79, 129, 189, 0.9)";
                 }
                 return creturn;
