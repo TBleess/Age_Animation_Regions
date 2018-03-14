@@ -282,10 +282,10 @@ $(function() {
             if (cyear > 1945 && cyear < 1965) {
                 creturn = "rgba(128, 100, 162, 0.9)";
             }
-            if (cyear > 1964 && cyear < 1980) {
+            if (cyear > 1964 && cyear < 1981) {
                 creturn = "rgba(155, 187, 89, 0.9)";
             }
-            if (cyear > 1979 && cyear < 1997) {
+            if (cyear > 1980 && cyear < 1997) {
                 creturn = "rgba(240, 2, 127, 0.9)";
             }
             if (cyear > 1996 && cyear < 2015) {
@@ -341,10 +341,10 @@ $(function() {
                 if (cyear > 1945 && cyear < 1965) {
                     creturn = "rgba(128, 100, 162, 0.9)";
                 }
-                if (cyear > 1964 && cyear < 1980) {
+                if (cyear > 1964 && cyear < 1981) {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
-                if (cyear > 1979 && cyear < 1997) {
+                if (cyear > 1980 && cyear < 1997) {
                     creturn = "rgba(240, 2, 127, 0.9)";
                 }
                 if (cyear > 1996 && cyear < 2015) {
@@ -386,10 +386,10 @@ $(function() {
                 if (cyear > 1945 && cyear < 1965) {
                     creturn = "rgba(128, 100, 162, 0.9)";
                 }
-                if (cyear > 1964 && cyear < 1980) {
+                if (cyear > 1964 && cyear < 1981) {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
-                if (cyear > 1979 && cyear < 1997) {
+                if (cyear > 1980 && cyear < 1997) {
                     creturn = "rgba(240, 2, 127, 0.9)";
                 }
                 if (cyear > 1996 && cyear < 2015) {
