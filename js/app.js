@@ -292,7 +292,7 @@ $(function() {
                 creturn = "rgba(0, 0, 255, 0.9)";
             }
             if (cyear > 2014 && cyear < 2030) {
-                creturn = "rgba(191, 91, 23, 0.9)";
+                creturn = "rgba(102, 51, 0, 0.9)";
             }
             if (cyear > 2029) {
                 creturn = "rgba(79, 129, 189, 0.9)";
@@ -351,7 +351,7 @@ $(function() {
                     creturn = "rgba(0, 0, 255, 0.9)";
                 }
                 if (cyear > 2014 && cyear < 2030) {
-                    creturn = "rgba(191, 91, 23, 0.9)";
+                    creturn = "rgba(102, 51, 0, 0.9)";
                 }
                 if (cyear > 2029) {
                     creturn = "rgba(79, 129, 189, 0.9)";
@@ -396,7 +396,7 @@ $(function() {
                     creturn = "rgba(0, 0, 255, 0.9)";
                 }
                 if (cyear > 2014 && cyear < 2030) {
-                    creturn = "rgba(191, 91, 23, 0.9)";
+                    creturn = "rgba(102, 51, 0, 0.9)";
                 }
                 if (cyear > 2029) {
                     creturn = "rgba(79, 129, 189, 0.9)";
