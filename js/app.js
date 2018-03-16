@@ -286,10 +286,10 @@ $(function() {
                 creturn = "rgba(155, 187, 89, 0.9)";
             }
             if (cyear > 1980 && cyear < 1997) {
-                creturn = "rgba(240, 2, 127, 0.9)";
+                creturn = "rgba(192, 80, 77, 0.9)";
             }
             if (cyear > 1996 && cyear < 2015) {
-                creturn = "rgba(255, 255, 153, 0.9)";
+                creturn = "rgba(255, 153, 0, 0.9)";
             }
             if (cyear > 2014 && cyear < 2030) {
                 creturn = "rgba(191, 91, 23, 0.9)";
@@ -345,10 +345,10 @@ $(function() {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
                 if (cyear > 1980 && cyear < 1997) {
-                    creturn = "rgba(240, 2, 127, 0.9)";
+                    creturn = "rgba(192, 80, 77, 0.9)";
                 }
                 if (cyear > 1996 && cyear < 2015) {
-                    creturn = "rgba(255, 255, 153, 0.9)";
+                    creturn = "rgba(255, 153, 0, 0.9)";
                 }
                 if (cyear > 2014 && cyear < 2030) {
                     creturn = "rgba(191, 91, 23, 0.9)";
@@ -390,10 +390,10 @@ $(function() {
                     creturn = "rgba(155, 187, 89, 0.9)";
                 }
                 if (cyear > 1980 && cyear < 1997) {
-                    creturn = "rgba(240, 2, 127, 0.9)";
+                    creturn = "rgba(192, 80, 77, 0.9)";
                 }
                 if (cyear > 1996 && cyear < 2015) {
-                    creturn = "rgba(255, 255, 153, 0.9)";
+                    creturn = "rgba(255, 153, 0, 0.9)";
                 }
                 if (cyear > 2014 && cyear < 2030) {
                     creturn = "rgba(191, 91, 23, 0.9)";
